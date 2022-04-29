@@ -12,7 +12,8 @@ public class EqualWith : IConditionalOperator
         Data = data;
     }
 
-    public async Task<bool> ExecuteAsync<TData>(ICollectedData<TData> collectedData, Func<TData, object> suspectedFunc,
+    public async Task<bool> ExecuteAsync<TData, TProperty>(ICollectedData<TData> collectedData,
+        Func<TData, TProperty> suspectedFunc,
         CancellationToken? cancellationToken = null)
     {
         return await Task.Run(() =>
@@ -22,7 +23,7 @@ public class EqualWith : IConditionalOperator
         }, cancellationToken ?? new CancellationToken(false));
     }
 
-    public bool Execute<TData>(ICollectedData<TData> collectedData, Func<TData, object> suspectedFunc)
+    public bool Execute<TData, TProperty>(ICollectedData<TData> collectedData, Func<TData, TProperty> suspectedFunc)
     {
         var data = suspectedFunc(collectedData.GetData());
         return data.Equals(Data);

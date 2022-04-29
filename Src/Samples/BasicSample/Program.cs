@@ -3,8 +3,8 @@
 Console.WriteLine("Hello, World!");
 
 
-var rehsa = new Rehsa<testc>();
-var y = rehsa.Collect(new testc()).Suspect(x => x.Testb.Testd.Age).EqualWith(20).Build().Check();
+var rehsa = new RehsaFactory().CreateDefault<testc>();
+var y = rehsa.Collect(new testc()).Suspect(x => x.Testb.Testd.Name).Contains("dsfs").Build().Check();
 
 Console.WriteLine($"result is: {y}");
 
@@ -35,9 +35,11 @@ public class testb
 public class testd
 {
     public int Age { get; set; }
+    public string Name { get; set; }
 
     public testd()
     {
         Age = 18;
+        Name = "Ali karimi";
     }
 }

@@ -1,8 +1,6 @@
-﻿using Rehsa.Core.Contracts.Operators;
+﻿namespace Rehsa.Core.Contracts.Collectors;
 
-namespace Rehsa.Core.Contracts.Collectors;
-
-public interface IDataSuspicious<out TData>
+public interface IDataSuspicious<TData>
 {
-    IOperatorDefiner Suspect(Func<TData, object> func);
+    Rehsa<TData> Suspect(Func<TData, object> func);
 }

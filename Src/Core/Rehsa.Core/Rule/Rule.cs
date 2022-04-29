@@ -1,7 +1,6 @@
 ﻿using Rehsa.Core.Contracts.Operators;
 using Rehsa.Core.Contracts.Rule;
 using Rehsa.Core.Models;
-using Rehsa.Core.Operators;
 
 namespace Rehsa.Core.Rule;
 

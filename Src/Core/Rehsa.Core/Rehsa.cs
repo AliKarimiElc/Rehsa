@@ -1,23 +1,21 @@
 ﻿using Rehsa.Core.Contracts.Collectors;
 using Rehsa.Core.Contracts.Operators;
+using Rehsa.Core.Contracts.Rehsa;
 using Rehsa.Core.Contracts.Rule;
 using Rehsa.Core.Models;
-using Rehsa.Core.Operators;
 using Rehsa.Core.Rule;
 
 namespace Rehsa.Core;
 
-public interface IRehsa
+public class Rehsa<TData> : IRehsa, IDataCollector<TData>, IDataSuspicious<TData>, IRuleBuilder
 {
+    public Rehsa()
+    {
+    }
 
-}
-
-public class Rehsa<TData> : IRehsa, IDataCollector<TData>, IDataSuspicious<TData>, IOperatorDefiner, IRuleBuilder
-{
     public ICollectedData<TData>? CollectedData { get; private set; }
-    public Func<TData?, object>? SuspectedFunc { get; private set; }
-
-    public IOperator? Operator { get; private set; }
+    public Func<TData?,object> SuspectedFunc { get; private set; }
+    public IOperator? Operator { get; set; }
 
     public IDataSuspicious<TData> Collect(object data)
     {
@@ -31,33 +29,9 @@ public class Rehsa<TData> : IRehsa, IDataCollector<TData>, IDataSuspicious<TData
         return this;
     }
 
-    public IOperatorDefiner Suspect(Func<TData, object> func)
+    public Rehsa<TData> Suspect(Func<TData, object> func)
     {
         SuspectedFunc = func;
-        return this;
-    }
-
-    public IRuleBuilder EqualWith<TSData>(TSData data)
-    {
-        Operator = new EqualWith(data);
-        return this;
-    }
-
-    public IRuleBuilder NotEqualWith<TSData>(TSData data)
-    {
-        Operator = new NotEqualWith(data);
-        return this;
-    }
-
-    public IRuleBuilder True()
-    {
-        Operator = new True();
-        return this;
-    }
-
-    public IRuleBuilder False()
-    {
-        Operator = new False();
         return this;
     }
 

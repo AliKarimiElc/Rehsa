@@ -12,7 +12,7 @@ public class NotEqualWith : IConditionalOperator
         Data = data;
     }
 
-    public async Task<bool> ExecuteAsync<TData>(ICollectedData<TData> collectedData, Func<TData, object> suspectedFunc,
+    public async Task<bool> ExecuteAsync<TData,TProperty>(ICollectedData<TData> collectedData, Func<TData, TProperty> suspectedFunc,
         CancellationToken? cancellationToken = null)
     {
         return await Task.Run(() =>
@@ -22,7 +22,7 @@ public class NotEqualWith : IConditionalOperator
         }, cancellationToken ?? new CancellationToken(false));
     }
 
-    public bool Execute<TData>(ICollectedData<TData> collectedData, Func<TData, object> suspectedFunc)
+    public bool Execute<TData,TProperty>(ICollectedData<TData> collectedData, Func<TData, TProperty> suspectedFunc)
     {
         var data = suspectedFunc.Invoke(collectedData.GetData());
         return !data.Equals(Data);
