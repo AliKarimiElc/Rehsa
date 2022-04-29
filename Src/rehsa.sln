@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rehsa", "Rehsa", "{099AE826-1071-429F-8C87-6D64C2FA623B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{B2DDF810-A3D1-424B-8E2F-F214A2713EB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{FA521E60-79FB-483D-8211-54D851E3AF95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{780117C8-B449-4375-8A7B-61B62A2E16BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicSample", "Samples\BasicSample\BasicSample.csproj", "{BFC855EA-B6C5-4BD9-91FE-03E948684A15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rehsa.Core", "Core\Rehsa.Core\Rehsa.Core.csproj", "{2E9224FB-F8D5-4BF2-A55C-B9DD874CF36A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFC855EA-B6C5-4BD9-91FE-03E948684A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC855EA-B6C5-4BD9-91FE-03E948684A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC855EA-B6C5-4BD9-91FE-03E948684A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC855EA-B6C5-4BD9-91FE-03E948684A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9224FB-F8D5-4BF2-A55C-B9DD874CF36A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9224FB-F8D5-4BF2-A55C-B9DD874CF36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9224FB-F8D5-4BF2-A55C-B9DD874CF36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9224FB-F8D5-4BF2-A55C-B9DD874CF36A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{780117C8-B449-4375-8A7B-61B62A2E16BD} = {099AE826-1071-429F-8C87-6D64C2FA623B}
+		{BFC855EA-B6C5-4BD9-91FE-03E948684A15} = {B2DDF810-A3D1-424B-8E2F-F214A2713EB5}
+		{2E9224FB-F8D5-4BF2-A55C-B9DD874CF36A} = {780117C8-B449-4375-8A7B-61B62A2E16BD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAB5F034-7DD5-4F38-9DED-0D2485923E3D}
+	EndGlobalSection
+EndGlobal
