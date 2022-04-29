@@ -14,11 +14,6 @@ public interface IRehsa
 
 public class Rehsa<TData> : IRehsa, IDataCollector<TData>, IDataSuspicious<TData>, IOperatorDefiner, IRuleBuilder
 {
-    public Rehsa(IServiceProvider serviceProvider)
-    {
-        var t = serviceProvider.GetService(typeof(IServiceProvider)) as IOperatorDefiner;
-    }
-
     public ICollectedData<TData>? CollectedData { get; private set; }
     public Func<TData?, object>? SuspectedFunc { get; private set; }
 
