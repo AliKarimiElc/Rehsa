@@ -1,11 +1,10 @@
 ﻿namespace Rehsa.Core.Models;
 
-public interface ICollectedData<out TData> : ICollectedData
+/// <summary>
+/// Collected data container interface
+/// </summary>
+/// <typeparam name="TData"></typeparam>
+public interface ICollectedData<out TData>
 {
     public new TData GetData();
-}
-
-public interface ICollectedData
-{
-    public object GetData();
 }
