@@ -4,6 +4,13 @@ namespace Rehsa.Core;
 
 public static partial class OperatorDefiner
 {
+    public static Rehsa<IEnumerable<TData>> Any<TData>(this Rehsa<IEnumerable<TData>> rehsa,TData data)
+    {
+        rehsa.Operator = new Contains<TData>(data);
+        return rehsa;
+    }
+
+
     public static Rehsa<TData> EqualWith<TData,TSuspectedProperty>(this Rehsa<TData> rehsa, TSuspectedProperty data)
     {
         rehsa.Operator = new EqualWith(data);

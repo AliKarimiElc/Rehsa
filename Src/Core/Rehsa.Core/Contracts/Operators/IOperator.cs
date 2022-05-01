@@ -1,6 +1,4 @@
-﻿using Rehsa.Core.Models;
-
-namespace Rehsa.Core.Contracts.Operators;
+﻿namespace Rehsa.Core.Contracts.Operators;
 
 /// <summary>
 /// the Interface for all types of operators
@@ -16,7 +14,7 @@ public interface IOperator
     /// <typeparam name="TData">Type of collected data</typeparam>
     /// <typeparam name="TProperty">Type of suspected property of collected data</typeparam>
     /// <returns></returns>
-    Task<bool> ExecuteAsync<TData,TProperty>(ICollectedData<TData> collectedData, Func<TData, TProperty> suspectedFunc,
+    Task<bool> ExecuteAsync<TData,TProperty>(TData collectedData, Func<TData, TProperty> suspectedFunc,
         CancellationToken? cancellationToken = null);
 
     /// <summary>
@@ -27,7 +25,7 @@ public interface IOperator
     /// <typeparam name="TData">Type of collected data</typeparam>
     /// <typeparam name="TProperty">Type of suspected property of collected data</typeparam>
     /// <returns></returns>
-    bool Execute<TData,TProperty>(ICollectedData<TData> collectedData, Func<TData, TProperty> suspectedFunc);
+    bool Execute<TData,TProperty>(TData collectedData, Func<TData, TProperty> suspectedFunc);
 
     /// <summary>
     /// Execute operators async
@@ -38,7 +36,7 @@ public interface IOperator
     /// <typeparam name="TData">Type of collected data</typeparam>
     /// <typeparam name="TProperty">Type of suspected property of collected data</typeparam>
     /// <returns></returns>
-    Task<bool> ExecuteAsync<TData, TProperty>(ICollectedData<TData> collectedData, Func<IEnumerable<TData>, TProperty> suspectedFunc,
+    Task<bool> ExecuteAsync<TData, TProperty>(TData collectedData, Func<IEnumerable<TData>, TProperty> suspectedFunc,
         CancellationToken? cancellationToken = null);
 
 
@@ -50,5 +48,5 @@ public interface IOperator
     /// <typeparam name="TData">Type of collected data</typeparam>
     /// <typeparam name="TProperty">Type of suspected property of collected data</typeparam>
     /// <returns></returns>
-    bool Execute<TData,TProperty>(ICollectedData<TData> collectedData, Func<IEnumerable<TData>, TProperty> suspectedFunc);
+    bool Execute<TData,TProperty>(TData collectedData, Func<IEnumerable<TData>, TProperty> suspectedFunc);
 }

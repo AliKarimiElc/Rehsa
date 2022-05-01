@@ -1,6 +1,5 @@
 ﻿using Rehsa.Core.Contracts.Operators;
 using Rehsa.Core.Contracts.Rule;
-using Rehsa.Core.Models;
 
 namespace Rehsa.Core.Rule;
 
@@ -16,7 +15,7 @@ public class Rule<TData>:IRule
     /// <param name="collectedData"></param>
     /// <param name="suspectedFunc"></param>
     /// <param name="operator"></param>
-    public Rule(ICollectedData<TData> collectedData, Func<TData,object> suspectedFunc, IOperator @operator)
+    public Rule(TData collectedData, Func<TData,object> suspectedFunc, IOperator @operator)
     {
         CollectedData = collectedData;
         SuspectedFunc = suspectedFunc;
@@ -26,7 +25,7 @@ public class Rule<TData>:IRule
     /// <summary>
     /// Simple collected data
     /// </summary>
-    public ICollectedData<TData> CollectedData { get; set; }
+    public TData CollectedData { get; set; }
     /// <summary>
     /// function for suspect data
     /// </summary>
@@ -58,14 +57,14 @@ public class Rule<TData>:IRule
 
 public class Rule<TEnumerable,TData> : IRule where TEnumerable : IEnumerable<TData>
 {
-    public Rule(ICollectedData<TData> collectedData, Func<IEnumerable<TData>, object> suspectedFunc, IOperator @operator)
+    public Rule(TData collectedData, Func<IEnumerable<TData>, object> suspectedFunc, IOperator @operator)
     {
         CollectedData = collectedData;
         SuspectedFunc = suspectedFunc;
         Operator = @operator;
     }
 
-    public ICollectedData<TData> CollectedData { get; set; }
+    public TData CollectedData { get; set; }
     public Func<IEnumerable<TData>, object> SuspectedFunc { get; set; }
     public IOperator Operator { get; set; }
 

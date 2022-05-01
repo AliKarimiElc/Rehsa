@@ -11,7 +11,7 @@ public interface IDataCollector<TData>
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    IDataSuspicious<TData> Collect(object data);
+    IDataSuspicious<TData> Collect(TData data);
 }
 
 /// <summary>
@@ -19,12 +19,12 @@ public interface IDataCollector<TData>
 /// </summary>
 /// <typeparam name="TData"></typeparam>
 /// <typeparam name="TEnumerable"></typeparam>
-public interface IDataCollector<TEnumerable, TData> where TEnumerable : IEnumerable<TData>
+public interface IEnumerableDataCollector<TData>
 {
     /// <summary>
     /// Collect data
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    IEnumerableDataSuspicious<TEnumerable, TData> Collect(object data);
+    IEnumerableDataSuspicious<TData> Collect(IEnumerable<TData> data);
 }

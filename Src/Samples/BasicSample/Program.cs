@@ -8,9 +8,21 @@ var y = rehsa.Collect(new testc()).Suspect(x => x.Testb.Testd.Name).Contains("ds
 
 Console.WriteLine($"result is: {y}");
 
-
-
-
+var tt = new Rehsa<List<testc>>().Collect(new List<testc>
+{
+    new()
+    {
+        Testb = new testb() { Testd = new testd() { Age = 18 } }
+    },
+    new()
+    {
+        Testb = new testb() { Testd = new testd() { Age = 29 } },
+    },
+    new()
+    {
+        Testb = new testb() { Testd = new testd() { Age = 37 } },
+    }
+})
 
 public class testc
 {
